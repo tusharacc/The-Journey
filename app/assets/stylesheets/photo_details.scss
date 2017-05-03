@@ -1,0 +1,20 @@
+// Place all the styles related to the PhotoDetails controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.absolute-center{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#pic-upload {
+  position: absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  max-height: 50%;
+  max-width: 50%;
+  margin:auto;
+}

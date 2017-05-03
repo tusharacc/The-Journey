@@ -1,0 +1,45 @@
+
+  
+    <div class="row" style="display:flex">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 jumbotron">
+        <%= form_tag nil,multipart: true do  %>
+          <div class="input-group absolute-center" >
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-default" id="file-upload" formaction="/file_upload"><span class="glyphicon glyphicon-upload"></span></button>
+            </span>
+            <input type="file" name='picture_upload' id='picture_upload' class="form-control" placeholder="Upload Photo">
+          </div>
+          <div>
+            <% if pic_url != nil %>
+              <img id="pic-upload" src="<%= ('/uploads/'+pic_url) %>">
+            <%end%>
+          </div>
+        <%end%>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 jumbotron">
+        <%= form_tag '/photo_details' do  %>
+          <div class="field form-group">
+            <%= label_tag :title %><br>
+            <%= text_field_tag :title,nil,class: 'form-control', placeholder: 'Title of photo' %>
+          </div>
+          <div class="field form-group">
+            <%= label_tag :date_taken %><br>
+            <%= date_select :date_taken,nil,start_year:2009,use_two_digit_numbers: true, class: 'form-control' %>
+          </div>
+          <div class="field form-group">
+            <%= label_tag :place %><br>
+            <%= text_field_tag :place,nil, class: 'form-control', placeholder: 'Place photo was taken' %>
+          </div>
+        
+          <div class="field form-group">
+            <%= label_tag :details %><br>
+            <%= text_area :details,nil,class: 'form-control', placeholder: 'Story' %>
+          </div>
+          <div class="actions">
+            <%= submit_tag :Save, class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  
+

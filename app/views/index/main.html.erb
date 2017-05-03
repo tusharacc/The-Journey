@@ -1,0 +1,43 @@
+<% require 'date' %>
+<div class="well well-sm" style="background: linear-gradient(45deg, #cceeff, #e6f7ff);">
+  <div class="row" style="display:flex;">
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+          <input type="range" id="year-range" class="form-control" name="points" min="2010" max="<%= Date.today.year %>" step="1" value="2010" onchange="populateYear(this)">
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+      <input type="text" name="year-value" disabled value="2010"><span><small><i> Use slider to change year</i></small></span>
+    </div>
+  </div>
+</div>
+
+<%= debug @photos %>
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="false" style="background: linear-gradient(45deg, #ffe0cc, #ffffff);">
+  
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+
+    <% @photos.to_a.each_with_index do |photo,index| %>
+      <div class="item <%= index == 0? 'active':nil %>" style="margin:auto;">
+        <img class="img-responsive center-block" src="<%=photo['link']  %>" height="500" width="500" >
+      </div>
+    <% end %>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+<br/>
+<div class="jumbotron" id="story-board" style="background: linear-gradient(45deg, #ffb3b3, #ffcccc);">
+  <h4 class="text-center text-uppercase" id="photo-title">Center aligned text.</h4>
+  <p class="lead" id="photo-story">There was a brown fox. Brown Fox was brown in color, hence it didnt appear black. so what happened is it jumped.</p>
+  <p class="text-left" id="photo-location">Location,</p>
+  <p class="text-left" id="photo-date">Date</p>
+</div>
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Journey</title>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+  <%= include_gon %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  
+
+</head>
+<body style="background: radial-gradient(#f9ecf2, #f9ecf2, #f9ecf2);">
+<div class="container-fluid">
+  <header style="background-color:black;">
+    <div class="row" style="display:flex;">
+      <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+        <a href="<%= root_path %>"><h3>The Journey <small>..down the memory lane</small></h3></a>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="margin:auto;">
+        <a class="btn btn-info" id="add-memories" href="<%= new_photo_detail_path %>" >Add memories</a>
+      </div>
+    </div>
+  </header>
+ <br/>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-info"><%= value %></div>
+  <% end %>
+  <%= yield %>
+</div>
+
+</body>
+</html>

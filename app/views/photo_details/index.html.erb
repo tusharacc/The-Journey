@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Photo Details</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Place taken</th>
+      <th>Date taken</th>
+      <th>Link</th>
+      <th>Story</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @photo_details.each do |photo_detail| %>
+      <tr>
+        <td><%= photo_detail.title %></td>
+        <td><%= photo_detail.place_taken %></td>
+        <td><%= photo_detail.date_taken %></td>
+        <td><%= photo_detail.link %></td>
+        <td><%= photo_detail.story %></td>
+        <td><%= link_to 'Show', photo_detail %></td>
+        <td><%= link_to 'Edit', edit_photo_detail_path(photo_detail) %></td>
+        <td><%= link_to 'Destroy', photo_detail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Photo detail', new_photo_detail_path %>
